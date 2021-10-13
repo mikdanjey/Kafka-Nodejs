@@ -5,12 +5,12 @@ async function consume() {
     const kafka = new Kafka({
         clientId: CLOUDKARAFKA_CLIENT_ID,
         brokers: CLOUDKARAFKA_BROKERS,
-        ssl: true,
-        sasl: {
-            mechanism: 'scram-sha-256', // plain, scram-sha-256 or scram-sha-512
-            username: CLOUDKARAFKA_USERNAME,
-            password: CLOUDKARAFKA_PASSWORD,
-        },
+        // ssl: true,
+        // sasl: {
+        //     mechanism: 'scram-sha-256', // plain, scram-sha-256 or scram-sha-512
+        //     username: CLOUDKARAFKA_USERNAME,
+        //     password: CLOUDKARAFKA_PASSWORD,
+        // },
     });
 
     const consumer = kafka.consumer({ groupId: CLOUDKARAFKA_GROUP_ID });

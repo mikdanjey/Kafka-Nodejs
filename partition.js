@@ -5,12 +5,12 @@ async function createPartition() {
     const kafka = new Kafka({
         clientId: CLOUDKARAFKA_CLIENT_ID,
         brokers: CLOUDKARAFKA_BROKERS,
-        ssl: true,
-        sasl: {
-            mechanism: 'scram-sha-256', // plain, scram-sha-256 or scram-sha-512
-            username: CLOUDKARAFKA_USERNAME,
-            password: CLOUDKARAFKA_PASSWORD,
-        },
+        // ssl: true,
+        // sasl: {
+        //     mechanism: 'scram-sha-256', // plain, scram-sha-256 or scram-sha-512
+        //     username: CLOUDKARAFKA_USERNAME,
+        //     password: CLOUDKARAFKA_PASSWORD,
+        // },
     });
 
     const admin = kafka.admin();
@@ -19,8 +19,8 @@ async function createPartition() {
     await admin.createTopics({
         topics: [
             {
-                topic: "new-topic",
-                numPartitions: 2,
+                topic: CLOUDKARAFKA_TOPIC,
+                numPartitions: 10,
             },
         ],
     });
