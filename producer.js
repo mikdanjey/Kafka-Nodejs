@@ -36,7 +36,7 @@ async function produce() {
                     deviceType: getRandom("Device Type", 4),
                     tpn: getRandom("TPN", 1000),
                     amount: getRandomAmount(),
-                    transactionDate: new Date(),
+                    transactionDate: generateRandomDOB(),
                 }),
                 partition: 1
             },
